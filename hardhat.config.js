@@ -19,11 +19,11 @@ module.exports = {
       url:`https://mainnet.infura.io/v3/${projectId}`,
       accounts:[keyData]
     }
-  }
-  solidity: {
+  },
+  solidity:{
     version: "0.8.4",
     settings: {
-      opimazer: {
+      optimizer: {
         enabled:true,
         runs:200
       }

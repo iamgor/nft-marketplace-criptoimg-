@@ -1,9 +1,9 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("KIMarket", function () {
-  it("Should mint anr trade NFTs", async function () {
-    const Market = await ethers.getContractFactory('KIMarket');
+describe("CIMarket", function () {
+  it("Should mint and trade NFTs", async function () {
+    const Market = await ethers.getContractFactory('CIMarket');
     const market = await Market.deploy();
     await market.deployed();
     const marketAddress = market.address;
@@ -16,7 +16,7 @@ describe("KIMarket", function () {
     let listingPrice = await market.getListingPrice()
     listingPrice = listingPrice.toString();
 
-    const auctionPrice = ethers.utils.parserUnits('100', 'ether');
+    const auctionPrice = ethers.utils.parseUnits('100', 'ether');
     
     //test for minting
     await nft.mintToken('https-t1');

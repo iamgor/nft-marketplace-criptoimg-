@@ -7,7 +7,7 @@ import '@openzeppelin/contracts/utils/Counters.sol';
 // security against transactions for multiple request 
 import 'hardhat/console.sol';
 
-contract CImarket is ReentrancyGuard {
+contract CIMarket is ReentrancyGuard {
     using Counters for Counters.Counter;
 
     /* number of items minting, number of transactions, tokens that have not been sold
@@ -79,7 +79,7 @@ contract CImarket is ReentrancyGuard {
         require(msg.value == listingPrice, 'Price must be equal to listing price');
 
         _tokenIds.increment();
-        uint tokenId = _tokenIds.current();
+        uint itemId = _tokenIds.current();
 
         // putting it up for sale - boo - no owner z
         idToMarketToken[itemId] = MarketToken(
@@ -114,7 +114,7 @@ contract CImarket is ReentrancyGuard {
         uint itemId)
         public payable nonReentrant {
             uint price = idToMarketToken[itemId].price;
-            uint tokenId = idToMarketTokenitemId[itemId].tokenId;
+            uint tokenId = idToMarketToken[itemId].tokenId;
             require(msg.value == price, 'Please submit the asking price in order to continue');
 
             // transfer the amount to the seller 
