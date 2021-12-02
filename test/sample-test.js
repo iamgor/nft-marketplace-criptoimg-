@@ -36,7 +36,21 @@ describe("CIMarket", function () {
       value: auctionPrice
     });
 
-    const items = await market.fetchMarketTokens();
+    let items = await market.fetchMarketTokens();
+    
+    items = await Promise.all(items.map(async i=> {
+      // get the url of the value 
+
+      const tokenUri = await nft.tokenURI(i.tokenId)
+      let item = {
+        price: i.price.toString(),
+        tokenId: i.tokenId.toString(),
+        seller: i.seller,
+        owner: i.owner,
+        tokenUri
+      }
+      return item;
+    }))
 
     // test uot all the items 
     console.log("items", items);
