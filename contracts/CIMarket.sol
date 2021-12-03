@@ -18,7 +18,7 @@ contract CIMarket is ReentrancyGuard {
     Counters.Counter private _tokenSold;
 
     // determine who is the owner of the contract
-    // chardge a listing fee so the owner makes a cmmission
+    // chardge a listing fee so the owner makes a comission
 
     address payable owner;
     // deploying to matic the API is the same so you can use ether the same as matic
@@ -160,7 +160,7 @@ contract CIMarket is ReentrancyGuard {
                 }
             }
 
-            // second loop to loop throught the amount you have purchased with itemcount 
+            // second loop to loop throught the amount you  have purchased with itemcount 
             // check to see if the owner address is equal to msg.sender 
 
             MarketToken[] memory items = new MarketToken[](itemCount);
