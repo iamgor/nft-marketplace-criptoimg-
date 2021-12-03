@@ -1,6 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 const projectId = '552bc41a1a7b488db119f98447b68c55';
-const fs = require('fs');
+const fs = require('fs')
 const keyData = fs.readFileSync('./p-key.txt', {
   encoding:'utf8', flag:'r'
 })
@@ -9,7 +9,7 @@ module.exports = {
   defaultNetwork:'hardhat',
   networks:{
     hardhat:{
-      chainId:  1337 // config standart
+      chainId:  1337 // config standard
     },
     mumbai:{
       url:`https://polygon-mumbai.infura.io/v3/${projectId}`,
